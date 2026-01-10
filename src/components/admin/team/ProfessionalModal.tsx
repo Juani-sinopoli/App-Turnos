@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Professional, Service } from '../../../types/booking'
-import '../../calendar/AppointmentModal.css'
+import '../calendar/AppointmentModal.css'
 
 interface ProfessionalModalProps {
     isOpen: boolean
