@@ -10,10 +10,9 @@ function Login() {
 
     return (
         <div className="login-container">
+            <h1 className="business-name">LULI GUGLI Spa</h1>
             <div className="login-content">
-                <h1 className="business-name">LULI GUGLI Spa</h1>
                 <p className="business-tagline">Reserva tu turno</p>
-
                 {showSignUp ? (
                     <SignUp
                         onSwitchToSignIn={() => setShowSignUp(false)}
