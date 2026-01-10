@@ -1,0 +1,63 @@
+.calendar-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.calendar-nav-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.nav-btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+}
+
+.nav-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.current-date-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    min-width: 150px;
+}
+
+.view-switcher {
+    display: flex;
+    background-color: #f1f3f4;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.view-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #555;
+    font-weight: 500;
+}
+
+.view-btn.active {
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #1a73e8;
+}

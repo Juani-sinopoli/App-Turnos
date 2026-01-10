@@ -44,3 +44,14 @@ export interface ConfirmedBooking {
     professional: Professional
     confirmationId: string
 }
+
+export interface Appointment {
+    id: string
+    client: string
+    service: string
+    professional: string
+    time: string // HH:mm
+    day: string
+    status?: 'booked' | 'blocked'
+    duration?: number // minutes
+}
