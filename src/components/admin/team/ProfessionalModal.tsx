@@ -74,9 +74,9 @@ function ProfessionalModal({ isOpen, onClose, onSave, initialData }: Professiona
 
                     <div className="form-group">
                         <label>Especialidades</label>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxHeight: '200px', overflowY: 'auto', border: '1px solid #ddd', padding: '0.5rem', borderRadius: '6px' }}>
+                        <div className="checkbox-list-container">
                             {services.map(service => (
-                                <label key={service} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 'normal' }}>
+                                <label key={service} className="checkbox-item">
                                     <input
                                         type="checkbox"
                                         checked={selectedSpecialties.includes(service)}
