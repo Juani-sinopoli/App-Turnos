@@ -87,9 +87,9 @@ function ServiceModal({ isOpen, onClose, onSave, initialData }: ServiceModalProp
 
                     <div className="form-group">
                         <label>Profesionales Habilitados</label>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxHeight: '150px', overflowY: 'auto', border: '1px solid #ddd', padding: '0.5rem', borderRadius: '6px' }}>
+                        <div className="checkbox-list-container">
                             {professionals.map(prof => (
-                                <label key={prof.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 'normal' }}>
+                                <label key={prof.id} className="checkbox-item">
                                     <input
                                         type="checkbox"
                                         checked={selectedProfessionals.includes(prof.name)}
