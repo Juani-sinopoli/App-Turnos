@@ -1,52 +1,80 @@
 .time-slot-picker {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 2rem;
+    animation: slideIn 0.6s ease-out;
 }
 
 .time-slots-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.75rem;
 }
 
 .time-slot {
-    padding: var(--spacing-md) var(--spacing-sm);
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.5rem;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    /* Softer shape */
     color: var(--color-text-primary);
     font-family: var(--font-family);
-    font-size: var(--font-size-sm);
+    font-size: 0.95rem;
+    /* Slightly larger text */
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .time-slot:not(.unavailable):hover {
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(45, 212, 191, 0.1);
     border-color: var(--color-primary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .time-slot.selected {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: white;
-    font-weight: 600;
+    color: var(--color-text-on-primary);
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.4);
+    transform: scale(1.05);
 }
 
 .time-slot.unavailable {
     opacity: 0.3;
     cursor: not-allowed;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(15, 23, 42, 0.3);
+    border-color: transparent;
+    color: var(--color-text-secondary);
 }
 
-@media (max-width: 768px) {
+/* Stoked out effect for unavailable? Optional. */
+.time-slot.unavailable::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: rotate(-15deg);
+    opacity: 0.2;
+}
+
+@media (max-width: 640px) {
     .time-slots-grid {
-        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 cols on mobile */
+        gap: 0.5rem;
     }
 
     .time-slot {
-        padding: var(--spacing-sm);
-        font-size: 12px;
+        padding: 0.6rem 0.25rem;
+        font-size: 0.85rem;
+        border-radius: var(--radius-sm);
     }
 }

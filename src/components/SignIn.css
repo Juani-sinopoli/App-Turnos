@@ -6,49 +6,66 @@
 }
 
 .modal-content {
-    max-width: 420px;
-    width: 90%;
-    padding: var(--spacing-2xl);
-    background: var(--color-bg-modal);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--color-border);
+    max-width: 440px;
+    width: 100%;
+    padding: 2.5rem;
+    /* Glass Effect */
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Finer border */
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    animation: fadeIn var(--transition-slow);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    /* Heavier shadow for lift */
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeIn {
+@keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(40px) scale(0.95);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 .modal-title {
-    font-size: var(--font-size-2xl);
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--color-text-primary);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 2rem;
     text-align: center;
+}
+
+.business-tagline {
+    /* Override for inside modal context if needed */
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-primary);
 }
 
 .modal-form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    gap: 0.5rem;
+    /* Input groups handle their own margin-bottom */
+    margin-bottom: 2rem;
 }
 
 .modal-footer {
     text-align: center;
-    font-size: var(--font-size-sm);
+    font-size: 0.9rem;
     color: var(--color-text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Separator */
+    padding-top: 1.5rem;
 }
 
 .link-button {
@@ -58,12 +75,27 @@
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: color var(--transition-fast);
-    padding: 0;
+    transition: all var(--transition-fast);
+    padding: 0 4px;
     font-size: inherit;
+    position: relative;
+}
+
+.link-button::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.link-button:hover::after {
+    width: 100%;
 }
 
 .link-button:hover {
-    color: var(--color-secondary);
-    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(45, 212, 191, 0.4);
 }
